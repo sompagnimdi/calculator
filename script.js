@@ -122,11 +122,16 @@ operationButtons.forEach((button) => {
 });
 
 allClearButton.addEventListener("click", (button) => {
-  calculator.compute();
+  calculator.clear();
   calculator.updateDisplay();
 });
 
 deleteButton.addEventListener("click", (button) => {
-  calculator.clear();
+  calculator.delete();
   calculator.updateDisplay();
 });
+
+equalsButton.addEventListener('click', button => {
+  calculator.compute()
+  calculator.updateDisplay()}
+)
