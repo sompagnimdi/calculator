@@ -1,4 +1,4 @@
-class calculator {
+class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
@@ -57,7 +57,7 @@ class calculator {
   }
 
   getDisplayNumber(number) {
-    const stringNumber = number.toLocaleString();
+    const stringNumber = number.toString();
     const integerDigits = parseFloat(stringNumber.split(".")[0]);
     const decimalDigits = stringNumber.split(".")[1];
     let integerDisplay;
@@ -76,11 +76,14 @@ class calculator {
   }
 
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.currentOperand;
+    this.currentOperandTextElement.innerText = this.getDisplayNumber(
+      this.currentOperand
+    );
     if (this.operation != null) {
       this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
         this.previousOperand
-      )} ${this.operation}`;
+      )} 
+      ${this.operation}`;
     } else {
       this.previousOperandTextElement.innerText = "";
     }
@@ -99,7 +102,7 @@ const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
 
-const calculator = new calculator(
+const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
